@@ -1,0 +1,25 @@
+{
+  "name": "electron-car",
+  "version": "1.0.1",
+  "description": "A Car Electron application",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron ."
+  },
+  "repository": "https://github.com/dzbiku/electron-car",
+  "keywords": [
+    "Electron",
+    "car",
+    "simply",
+    "OBD",
+    "recorder"
+  ],
+  "author": "OnlyOne",
+  "license": "MIT",
+  "devDependencies": {
+    "electron": "~1.7.8"
+  },
+  "dependencies": {
+    "axios": "^0.17.1"
+  }
+}
