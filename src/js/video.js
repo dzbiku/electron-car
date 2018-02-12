@@ -6,6 +6,7 @@ function gotMedia(stream) {
     // |video| shows a live view of the captured MediaStream.
     theStream = stream;
     var video = document.querySelector('video');
+
     video.src = URL.createObjectURL(stream);
     try {
         recorder = new MediaRecorder(stream, { mimeType: "video/webm" });
@@ -24,12 +25,16 @@ btn_start_record.addEventListener('click', function (event) {
     recorder.start(100);
 })
 
-navigator.mediaDevices.getUserMedia({ "video": { width: { max: 640 } }, "audio" : true })
+btn_stop_record.addEventListener('click', function (event) {
+    recorder.stop();
+})
+
+navigator.mediaDevices.getUserMedia({ "video": { width: { max: 640 } }, "audio": true })
     .then(gotMedia)
     .catch(e => { console.error('getUserMedia() failed: ' + e); });
 
 function download() {
-    recorder.stop();
+    //recorder.stop();
     theStream.getTracks().forEach(track => { track.stop(); });
 
     var blob = new Blob(recordedChunks, { type: "video/webm" });
