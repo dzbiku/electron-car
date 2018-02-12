@@ -18,15 +18,13 @@ function gotMedia(stream) {
         console.log(' Recorded chunk of size ' + event.data.size + "B");
         recordedChunks.push(event.data);
     };
-
-
 }
 
 btn_start_record.addEventListener('click', function (event) {
     recorder.start(100);
 })
 
-navigator.mediaDevices.getUserMedia({ video: true, audio: true })
+navigator.mediaDevices.getUserMedia({ "video": { width: { max: 640 } }, "audio" : true })
     .then(gotMedia)
     .catch(e => { console.error('getUserMedia() failed: ' + e); });
 
