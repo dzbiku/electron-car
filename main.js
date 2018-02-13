@@ -27,7 +27,7 @@ function createWindow() {
     slashes: true
   }))
   // Open the DevTools.
-  mainWindow.webContents.openDevTools()
+  //mainWindow.webContents.openDevTools()
 
   // Emitted when the window is closed.
   mainWindow.on('closed', function () {
@@ -82,7 +82,7 @@ var menu = Menu.buildFromTemplate([
     label: 'About',
     submenu: [
       {
-        label: 'About app'        
+        label: 'About app'
       },
       { type: 'separator' },
       {
@@ -117,7 +117,7 @@ var menu = Menu.buildFromTemplate([
             }
           }
         ]
-      }      
+      }
     ]
   }
 ])
