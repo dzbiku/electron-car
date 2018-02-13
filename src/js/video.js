@@ -45,12 +45,12 @@ function gotMedia(stream) {
     recorder.ondataavailable = (event) => {
         console.log(' Recorded chunk of size ' + event.data.size + "B");
         recordedChunks.push(event.data);
-        document.getElementById('activator').innerHTML = "Recording in progress...";
     };
 }
 
 btn_start_record.addEventListener('click', function (event) {
     recorder.start(100);
+    document.getElementById('activator').innerHTML = "Recording in progress...";
     setTimerAfterClick();
 })
 
@@ -67,6 +67,7 @@ navigator.mediaDevices.getUserMedia({ "video": { width: { max: 640 } }, "audio":
     .then(gotMedia)
     .catch(e => {
         console.error('getUserMedia() failed: ' + e);
+        document.getElementById('details_error').style.display = "block";
         document.getElementById('details_error').innerHTML = "We have a trouble with connecting to Your camera. Please check connection beetwen cam and Your device. </br> Error details below: </br>" + e;
     });
 
@@ -86,3 +87,5 @@ function download() {
     setTimeout(function () { URL.revokeObjectURL(url); }, 100);
     document.getElementById('activator').innerHTML = "Vidoe downloaded!";
 }
+
+//document.getElementById('video_frame').innerHTML = "Current not recorder or some error! See below for details";

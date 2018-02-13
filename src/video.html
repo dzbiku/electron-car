@@ -29,10 +29,11 @@
     <div class="row-content">
         <div id="video_frame">
             Video </br>
-            <video autoplay/>
+            <video id="video_frame" autoplay/>
         </div>
         <div id="options_frame">
             Options
+            <div> Open Your video...</div>
         </div>
     </div>
     <div class="row-buttons" style="grid-template-columns: auto auto auto;">
@@ -52,7 +53,7 @@
     </div>
     <div class="row-content-details">
         <div id="file-details">
-            <p id="details_error">Loading....</p>
+            <p id="details_error" style="display: none;">Loading....</p>
         </div>
     </div>
     <script src="js/video.js"></script>
