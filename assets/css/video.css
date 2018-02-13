@@ -7,3 +7,18 @@
     grid-template-columns:auto 35%;
     align-items: left;
 }
+
+.row-content-details{
+    width: 100%;
+    margin-top: 15px;
+    background: #1a1a1a;
+    border-top: 3px solid #ff0057;
+    border-bottom: 3px solid #ff0057;
+    display: grid;
+    grid-template-columns: auto;
+    align-items: center;    
+    color: #ff0057;    
+}
+.row-content-details>div>p{
+    font-weight: bold;
+}

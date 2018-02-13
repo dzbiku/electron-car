@@ -10,7 +10,8 @@ function gotMedia(stream) {
     video.src = URL.createObjectURL(stream);
     try {
         recorder = new MediaRecorder(stream, { mimeType: "video/webm" });
-    } catch (e) {
+    }
+    catch (e) {
         console.error('Exception while creating MediaRecorder: ' + e);
         return;
     }
@@ -31,7 +32,10 @@ btn_stop_record.addEventListener('click', function (event) {
 
 navigator.mediaDevices.getUserMedia({ "video": { width: { max: 640 } }, "audio": true })
     .then(gotMedia)
-    .catch(e => { console.error('getUserMedia() failed: ' + e); });
+    .catch(e => {
+        console.error('getUserMedia() failed: ' + e);
+        document.getElementById('details_error').innerHTML ="We have a trouble with connecting to Your camera. Please check connection beetwen cam and Your device. </br> Error details below: </br>"+ e;
+    });
 
 function download() {
     //recorder.stop();

@@ -28,16 +28,17 @@
     </div>
     <div class="row-content">
         <div id="video_frame">
-            <input type="file" id="files" name="files[]" multiple />
+            <input type="file" id="files" name="files[]" multiple />            
         </div>
         <div id="display_frame">
+             <input type="file" id="flup" onchange="getfolder(event)" webkitdirectory mozdirectory msdirectory odirectory directory multiple/>
         </div>
     </div>
     <div class="row-content-details">
         <div id="file-details">
             <output id="list"></output>
         </div>
-    </div>
+    </div>    
     <script src="js/media.js"></script>
     <script src="js/template.js"></script>
 </body>
