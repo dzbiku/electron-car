@@ -55,10 +55,11 @@ btn_start_record.addEventListener('click', function (event) {
 })
 
 btn_stop_record.addEventListener('click', function (event) {
-    document.getElementById('activator').innerHTML = "Recording stoped! Please click download button to save video.";
     recorder.stop();
     //clear record time
     clearInterval(timer);
+    document.getElementById('activator').innerHTML = "Recording stoped! Please click download button to save video.";
+    document.getElementById('btn_take_screenshot').style.display = "block";
     secondsLabel.innerHTML = minutesLabel.innerHTML = totalSeconds ="00";
 })
 
