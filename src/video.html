@@ -27,11 +27,11 @@
         </div>
     </div>
     <div class="row-content">
-        <div id="video_frame"> 
+        <div id="video_frame">
             Video </br>
             <video autoplay/>
         </div>
-        <div id="options_frame"> 
+        <div id="options_frame">
             Options
         </div>
     </div>
@@ -46,11 +46,15 @@
             <button id="btn_take_screenshot" onclick="download()" style="background:#1a53ff;">Save it!</button>
         </div>
     </div>
+    <div class="row-buttons" style="grid-template-columns: auto auto auto auto;">
+        <div><label id="minutes">00</label>:<label id="seconds">00</label></div>
+        <div><p id="activator">Press REC to start recording Video!</p></div>
+    </div>
     <div class="row-content-details">
-            <div id="file-details">   
-                <p id="details_error">Loading....</p>             
-            </div>
+        <div id="file-details">
+            <p id="details_error">Loading....</p>
         </div>
+    </div>
     <script src="js/video.js"></script>
     <script src="js/template.js"></script>
 </body>
