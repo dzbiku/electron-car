@@ -23,3 +23,7 @@ function handleFileSelect(evt) {
     var Folder = path.split("/");
     //alert(Folder[0]);
 }
+
+document.getElementById('btn_file').onclick = function() {
+  document.getElementById('files').click();
+};
