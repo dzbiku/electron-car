@@ -26,20 +26,21 @@
             <button id="btn_five">Five</button>
         </div>
     </div>
-    <div class="row-content">
-        <div id="file_tree_frame">
-            <input type="file" id="files" style="display:none;"  name="files[]" multiple />
-            <button id="btn_file">Media</button>                  
+    <div class="row-buttons" style="grid-template-columns: 15% 25% auto;">        
+        <div>
+            <button id="btn_file">Media</button>
+            <input type="file" id="files" style="display:none;" name="files[]" multiple webkitdirectory mozdirectory msdirectory odirectory directory/>
         </div>
-        <div id="file_images_display">
-             <!-- <input type="file" id="flup" onchange="getfolder(event)" webkitdirectory mozdirectory msdirectory odirectory directory multiple/> -->
+        <div id="file_images_display" style="font-size: 10px">
+            Display folder selector/Display details of file
+            <!-- <input type="file" id="flup" onchange="getfolder(event)" webkitdirectory mozdirectory msdirectory odirectory directory multiple/> -->
         </div>
     </div>
     <div class="row-content-details">
         <div id="file-details">
             <output id="list"></output>
         </div>
-    </div>    
+    </div>
     <script src="js/media.js"></script>
     <script src="js/template.js"></script>
 </body>

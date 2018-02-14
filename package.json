@@ -1,6 +1,6 @@
 {
   "name": "electron-car",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "A Car Electron application",
   "main": "main.js",
   "scripts": {
