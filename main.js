@@ -26,6 +26,7 @@ function createWindow() {
     protocol: 'file:',
     slashes: true
   }))
+
   // Open the DevTools.
   //mainWindow.webContents.openDevTools()
 
@@ -115,8 +116,31 @@ var menu = Menu.buildFromTemplate([
               if (mainWindow)
                 mainWindow.setFullScreen(false)
             }
+          },
+          {
+            label: 'Refresh',
+            accelerator: 'F5',
+            click() {
+              if (mainWindow)
+                mainWindow.reload()
+            }
           }
         ]
+      },
+      {
+        label: 'Developer Tools',
+        accelerator: 'F12',
+        click() {
+          if (mainWindow)
+            mainWindow.webContents.openDevTools()
+        }
+      },
+      { type: 'separator' },
+      {
+        label: 'GitHub',
+        click() {
+          shell.openExternal('https://github.com/dzbiku/electron-car')
+        }
       }
     ]
   }
