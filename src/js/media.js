@@ -34,30 +34,39 @@ function getfolder(e) {
 
 document.getElementById('btn_file').onclick = function () {
   //document.getElementById('files').click();
-  getFiles("D:/MGR");
+  var seleftedFolder = "D:/MGR";
+  getFiles(seleftedFolder);
+  document.getElementById('file_images_display').innerHTML = seleftedFolder;
+
 };
 
 
 function getFiles(dir, fileList) {
   fileList = fileList || [];
-
+  var first = true;
   var files = fs.readdirSync(dir);
   var nameToCheck = dir + '/' + files[i + 1];
   var contentToShowInPage;
-  contentToShowInPage += '<details><summary>' + dir + '</summary>';
+  contentToShowInPage += '<details><summary>' + dir + '</summary>'; //for first Main- node
+
+
+
   for (var i in files) {
     if (!files.hasOwnProperty(i)) continue;
     var name = dir + '/' + files[i];
-    
+
     if (fs.statSync(name).isDirectory()) {
-      contentToShowInPage += '</details>';
+      if (!first) {
+        contentToShowInPage += '</details>';
+      }
+      first = false;
       getFiles(name, fileList);
       contentToShowInPage += '<details style="margin-left:25px"><summary>' + name + '</summary>';
     } else {
       if (fileList == null)
         fileList.push(files[i]);
       else {
-        if (pathFile.extname(files[i]) === ".txt" ||pathFile.extname(files[i]) === ".log" || pathFile.extname(files[i]) === ".ipynb" ) {
+        if (pathFile.extname(files[i]) === ".txt" || pathFile.extname(files[i]) === ".log" || pathFile.extname(files[i]) === ".ipynb") {
           contentToShowInPage += '<div style="margin-left:25px;"> <a href="#" onclick="window.open(\'' + name + '\'); return false;" style="float: left;">' + files[i] + '</a></div></br>';
         }
         else {
@@ -68,6 +77,6 @@ function getFiles(dir, fileList) {
     }
   }
   contentToShowInPage += '</details>';
-  document.getElementById('list').innerHTML =contentToShowInPage;
+  document.getElementById('list').innerHTML = contentToShowInPage;
   return fileList;
 }
