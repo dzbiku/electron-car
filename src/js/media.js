@@ -54,10 +54,11 @@ function getFiles(dir, fileList) {
           contentToShowInPage += '<div style="margin-left:25px;"> <a href="#" onclick="window.open(\'' + name + '\'); return false;" style="float: left;">' + files[i] + '</a></div></br>';
         }
         else if (pathFile.extname(files[i]) === ".mp4") {
-          contentToShowInPage += '<div style="margin-left:25px;"> <a href="#" class="video_clip" id="video_single_' + files[i] + '\'" style="clear:both;">' + name + '</a></div></br>';
+          contentToShowInPage += '<div style="margin-left:25px;"> <a href="#" class="video_clip" id="video_single_' + files[i] + '\'">' + name + '</a></div>';
         }
+        //another content- in progress, what to do with files
         else {
-          contentToShowInPage += '<div style="margin-left:25px;"> ' + files[i] + '</div>';
+          //contentToShowInPage += '<div style="margin-left:25px;"> ' + files[i] + '</div>';
         }
         fileList.push(name);
       }
@@ -89,18 +90,8 @@ function getFiles(dir, fileList) {
   return fileList;
 }
 
-// function setThisAsVideoSource() {
-//   document.getElementById('row_video_content').style.display = "block";
-//   document.getElementById('video_id').innerHTML = '<source src="' + document.getElementById('video_single').innerHTML + '" type="video/mp4">';
-// }
-
-// function setThisAsVideoSource(videoIdForAdd) {
-//   document.getElementById('row_video_content').style.display = "block";
-//   document.getElementById('video_id').innerHTML = '<source src="' + document.getElementById(videoIdForAdd).innerHTML + '" type="video/mp4">';
-// }
-
 window.onclick = e => {
-  //if(e.target.innerHTML)
+  //if(e.target.innerHTML.indexOf('substring') !== -1; )
   console.log('clicked element: ' + e.target.innerHTML);
   document.getElementById('labelOfClip').innerHTML = e.target.innerHTML;
 
