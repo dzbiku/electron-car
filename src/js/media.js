@@ -3,25 +3,6 @@ var output = [];
 var pathFile = require('path');
 
 function handleFileSelect(evt) {
-  //var files = evt.target.files; // FileList object
-
-  // files is a FileList of File objects. List some properties.
-
-  // for (var i = 0, f; f = files[i]; i++) {
-  //   output.push('<details><summary>', escape(f.name), '</summary>',
-  //     '<div style="margin-left:25px"> file type: ',
-  //     f.type ? f.type : 'n/a', '</div>',
-  //     '<div style="margin-left:25px"> last modified: ',
-  //     f.lastModifiedDate ? f.lastModifiedDate.toLocaleDateString() : 'n/a', '</div></details>');
-  // }
-  // document.getElementById('list').innerHTML = output.join('');   
-
-  //
-
-  // var path = files[0].webkitRelativePath;
-  // var Folder = path.split("/");
-  //alert(path)
-  //getListOfFilesInFolder("D:\\Projekty\\Electron\\electron-car-camera-rec\\electron-car-camera-rec");
 }
 
 document.getElementById('files').addEventListener('change', handleFileSelect, false);
@@ -34,7 +15,9 @@ function getfolder(e) {
 
 document.getElementById('btn_file').onclick = function () {
   //document.getElementById('files').click();
-  var seleftedFolder = "D:/MGR";
+  //var seleftedFolder = "D:/Programowanie/Angular/AlngularCLI_kurs";
+  var seleftedFolder = "D:/Video/YouTube/Alternator"; //D:\Video\YouTube\Alternator
+
   getFiles(seleftedFolder);
   document.getElementById('file_images_display').innerHTML = seleftedFolder;
 
@@ -56,12 +39,13 @@ function getFiles(dir, fileList) {
     var name = dir + '/' + files[i];
 
     if (fs.statSync(name).isDirectory()) {
-      if (!first) {
-        contentToShowInPage += '</details>';
-      }
-      first = false;
-      getFiles(name, fileList);
-      contentToShowInPage += '<details style="margin-left:25px"><summary>' + name + '</summary>';
+      //for multifolder
+      // if (!first) {
+      //   contentToShowInPage += '</details>';
+      // }
+      // first = false;
+      // getFiles(name, fileList);
+      // contentToShowInPage += '<details style="margin-left:25px"><summary>' + name + '</summary>';
     } else {
       if (fileList == null)
         fileList.push(files[i]);
@@ -69,14 +53,26 @@ function getFiles(dir, fileList) {
         if (pathFile.extname(files[i]) === ".txt" || pathFile.extname(files[i]) === ".log" || pathFile.extname(files[i]) === ".ipynb") {
           contentToShowInPage += '<div style="margin-left:25px;"> <a href="#" onclick="window.open(\'' + name + '\'); return false;" style="float: left;">' + files[i] + '</a></div></br>';
         }
+        else if (pathFile.extname(files[i]) === ".mp4") {
+          contentToShowInPage += '<div style="margin-left:25px;"> <a href="#" id="video_single" style="clear:both;">' + name+ '</a></div></br>';          
+        }
         else {
-          contentToShowInPage += '<div style="margin-left:25px;">f: ' + files[i] + '</div>';
+          contentToShowInPage += '<div style="margin-left:25px;"> ' + files[i] + '</div>';
         }
         fileList.push(name);
       }
     }
   }
+  
   contentToShowInPage += '</details>';
   document.getElementById('list').innerHTML = contentToShowInPage;
+  document.getElementById('video_single').onclick = setThisAsVideoSource;
   return fileList;
+
+}
+
+
+function setThisAsVideoSource() {
+  document.getElementById('row_video_content').style.display = "block";
+  document.getElementById('video_id').innerHTML = '<source src="' + document.getElementById('video_single').innerHTML + '" type="video/mp4">';
 }

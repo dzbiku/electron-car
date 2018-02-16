@@ -16,3 +16,13 @@
     grid-template-columns: auto;
     align-items: center;    
 }
+
+.row_video_content{
+    width: 100%;
+    margin-top: 15px;
+    background: #1a1a1a;
+    border-bottom: 3px solid #ff0057;
+    display: grid;
+    grid-template-columns: auto;
+    align-items: center;    
+}
