@@ -56,6 +56,9 @@ function getFiles(dir, fileList) {
         else if (pathFile.extname(files[i]) === ".mp4") {
           contentToShowInPage += '<div style="margin-left:25px;"> <a href="#" class="video_clip" id="video_single_' + files[i] + '\'">' + name + '</a></div>';
         }
+        else if (pathFile.extname(files[i]) === ".mp3") {
+          contentToShowInPage += '<div style="margin-left:25px;"> <a href="#" class="audio_track" id="audio_single_' + files[i] + '\'">' + name + '</a></div>';
+        }
         //another content- in progress, what to do with files
         else {
           //contentToShowInPage += '<div style="margin-left:25px;"> ' + files[i] + '</div>';
@@ -73,8 +76,7 @@ function getFiles(dir, fileList) {
 
   for (var iObj in spans) {
     if (isNaN(iObj) && iObj != 'item' && iObj != 'namedItem' && iObj != 'length') {
-      var elementId = iObj; 
-      //console.log('first check: ' +elementId);
+      var elementId = iObj;
       document.getElementById(elementId).addEventListener('click', function (event) {
         document.getElementById('row_video_content').style.display = "block";
         //document.getElementById('video_id').innerHTML = '<source src="' + document.getElementById(elementId).innerHTML + '" type="video/mp4">';
@@ -99,3 +101,12 @@ window.onclick = e => {
   document.getElementById('video_id').innerHTML = '<source src="' + e.target.innerHTML + '" type="video/mp4">';
   video.load();
 }
+
+//for audio playing
+/*
+<audio controls>
+  <source src="horse.ogg" type="audio/ogg">
+  <source src="horse.mp3" type="audio/mpeg">
+Your browser does not support the audio element.
+</audio>
+ */
