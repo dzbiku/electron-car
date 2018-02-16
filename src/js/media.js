@@ -54,7 +54,7 @@ function getFiles(dir, fileList) {
           contentToShowInPage += '<div style="margin-left:25px;"> <a href="#" onclick="window.open(\'' + name + '\'); return false;" style="float: left;">' + files[i] + '</a></div></br>';
         }
         else if (pathFile.extname(files[i]) === ".mp4") {
-          contentToShowInPage += '<div style="margin-left:25px;"> <a href="#" id="video_single" style="clear:both;">' + name+ '</a></div></br>';          
+          contentToShowInPage += '<div style="margin-left:25px;"> <a href="#" class="video_clip" id="video_single_' + files[i] + '\'" style="clear:both;">' + name + '</a></div></br>';
         }
         else {
           contentToShowInPage += '<div style="margin-left:25px;"> ' + files[i] + '</div>';
@@ -63,16 +63,33 @@ function getFiles(dir, fileList) {
       }
     }
   }
-  
+
   contentToShowInPage += '</details>';
   document.getElementById('list').innerHTML = contentToShowInPage;
-  document.getElementById('video_single').onclick = setThisAsVideoSource;
-  return fileList;
 
+  var spans = document.getElementsByClassName('video_clip'),
+    obj = {};
+
+  for (var iObj in spans) {
+    if (isNaN(iObj) && iObj != 'item'&& iObj != 'namedItem' && iObj != 'length') {
+      var elementId = iObj; //'video_single_'
+      document.getElementById(elementId).onclick = setThisAsVideoSource(elementId);
+      console.log(iObj);
+
+    }
+    //alert(spans.length);
+  }
+
+  //document.getElementById('video_single').onclick = setThisAsVideoSource;
+  return fileList;
 }
 
+// function setThisAsVideoSource() {
+//   document.getElementById('row_video_content').style.display = "block";
+//   document.getElementById('video_id').innerHTML = '<source src="' + document.getElementById('video_single').innerHTML + '" type="video/mp4">';
+// }
 
-function setThisAsVideoSource() {
+function setThisAsVideoSource(videoIdForAdd) {
   document.getElementById('row_video_content').style.display = "block";
-  document.getElementById('video_id').innerHTML = '<source src="' + document.getElementById('video_single').innerHTML + '" type="video/mp4">';
+  document.getElementById('video_id').innerHTML = '<source src="' + document.getElementById(videoIdForAdd).innerHTML + '" type="video/mp4">';
 }
