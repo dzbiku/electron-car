@@ -73,7 +73,12 @@ function getFiles(dir, fileList) {
   for (var iObj in spans) {
     if (isNaN(iObj) && iObj != 'item'&& iObj != 'namedItem' && iObj != 'length') {
       var elementId = iObj; //'video_single_'
-      document.getElementById(elementId).onclick = setThisAsVideoSource(elementId);
+      document.getElementById(elementId).addEventListener('click',function(event)
+      {
+        document.getElementById('labelOfClip').innerHTML = elementId;
+        document.getElementById('row_video_content').style.display = "block";
+        document.getElementById('video_id').innerHTML = '<source src="' + document.getElementById(elementId).innerHTML + '" type="video/mp4">';
+      });
       console.log(iObj);
 
     }
@@ -89,7 +94,7 @@ function getFiles(dir, fileList) {
 //   document.getElementById('video_id').innerHTML = '<source src="' + document.getElementById('video_single').innerHTML + '" type="video/mp4">';
 // }
 
-function setThisAsVideoSource(videoIdForAdd) {
-  document.getElementById('row_video_content').style.display = "block";
-  document.getElementById('video_id').innerHTML = '<source src="' + document.getElementById(videoIdForAdd).innerHTML + '" type="video/mp4">';
-}
+// function setThisAsVideoSource(videoIdForAdd) {
+//   document.getElementById('row_video_content').style.display = "block";
+//   document.getElementById('video_id').innerHTML = '<source src="' + document.getElementById(videoIdForAdd).innerHTML + '" type="video/mp4">';
+// }
