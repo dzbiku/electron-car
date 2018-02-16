@@ -53,11 +53,8 @@ function getFiles(dir, fileList) {
         if (pathFile.extname(files[i]) === ".txt" || pathFile.extname(files[i]) === ".log" || pathFile.extname(files[i]) === ".ipynb") {
           contentToShowInPage += '<div style="margin-left:25px;"> <a href="#" onclick="window.open(\'' + name + '\'); return false;" style="float: left;">' + files[i] + '</a></div></br>';
         }
-        else if (pathFile.extname(files[i]) === ".mp4") {
+        else if (pathFile.extname(files[i]) === ".mp4" || pathFile.extname(files[i]) === ".mp3") {
           contentToShowInPage += '<div style="margin-left:25px;"> <a href="#" class="video_clip" id="video_single_' + files[i] + '\'">' + name + '</a></div>';
-        }
-        else if (pathFile.extname(files[i]) === ".mp3") {
-          contentToShowInPage += '<div style="margin-left:25px;"> <a href="#" class="audio_track" id="audio_single_' + files[i] + '\'">' + name + '</a></div>';
         }
         //another content- in progress, what to do with files
         else {
@@ -94,12 +91,17 @@ function getFiles(dir, fileList) {
 
 window.onclick = e => {
   //if(e.target.innerHTML.indexOf('substring') !== -1; )
+  if (pathFile.extname(e.target.innerHTML) === ".mp3")
+    document.getElementById('video_id').setAttribute('height', '40px')
+  if (pathFile.extname(e.target.innerHTML) === ".mp4")
+    document.getElementById('video_id').setAttribute('height', 'auto')
   console.log('clicked element: ' + e.target.innerHTML);
   document.getElementById('labelOfClip').innerHTML = e.target.innerHTML;
 
   var video = document.getElementById('video_id');
   document.getElementById('video_id').innerHTML = '<source src="' + e.target.innerHTML + '" type="video/mp4">';
   video.load();
+  video.play();
 }
 
 //for audio playing
