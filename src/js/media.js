@@ -53,9 +53,13 @@ function getFiles(dir, fileList) {
         if (pathFile.extname(files[i]) === ".txt" || pathFile.extname(files[i]) === ".log" || pathFile.extname(files[i]) === ".ipynb") {
           contentToShowInPage += '<div style="margin-left:25px;"> <a href="#" onclick="window.open(\'' + name + '\'); return false;" style="float: left;">' + files[i] + '</a></div></br>';
         }
-        else if (pathFile.extname(files[i]) === ".mp4" || pathFile.extname(files[i]) === ".mp3") {
-          contentToShowInPage += '<div style="margin-left:25px;"> <a href="#" class="video_clip" id="video_single_' + files[i] + '\'">' + name + '</a></div>';
+        else if (pathFile.extname(files[i]) === ".mp4") {
+          contentToShowInPage += '<div style="margin-left:25px;"><img id="logo" src="../assets/images/mp4.png" alt="mp4_logo" style="width:20px;" /> <a href="#" class="video_clip" id="video_single_' + files[i] + '\'">' + name + '</a></div>';
         }
+        else if (pathFile.extname(files[i]) === ".mp3") {
+          contentToShowInPage += '<div style="margin-left:25px;"><img id="logo" src="../assets/images/mp3_new.png" alt="mp3_logo" style="width:20px;" /> <a href="#" class="video_clip" id="video_single_' + files[i] + '\'">' + name + '</a></div>';
+        }
+        // pathLocal.join(__dirname,'../assets/images/smile.png')
         //another content- in progress, what to do with files
         else {
           //contentToShowInPage += '<div style="margin-left:25px;"> ' + files[i] + '</div>';
