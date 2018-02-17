@@ -62,7 +62,7 @@ function getFiles(dir, fileList) {
         // pathLocal.join(__dirname,'../assets/images/smile.png')
         //another content- in progress, what to do with files
         else {
-          //contentToShowInPage += '<div style="margin-left:25px;"> ' + files[i] + '</div>';
+          contentToShowInPage += '<div style="margin-left:25px;"><img id="logo" src="../assets/images/not_know.png" alt="mp3_logo" style="width:20px;" /> ' + files[i] + '</div>';
         }
         fileList.push(name);
       }
