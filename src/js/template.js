@@ -23,3 +23,10 @@ btn_four.addEventListener('click',function(event)
     var pathToVideo = path.join('file://',__dirname,'media.html')
     main.loadURL(pathToVideo)   
 })
+// Media
+btn_five.addEventListener('click',function(event)
+{
+    var main =remote.getCurrentWindow();
+    var pathToVideo = path.join('file://',__dirname,'car.html')
+    main.loadURL(pathToVideo)   
+})

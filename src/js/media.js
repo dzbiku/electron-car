@@ -49,6 +49,7 @@ function getFiles(dir, fileList) {
       if (fileList == null)
         fileList.push(files[i]);
       else {
+        console.log(pathFile.extname(files[i]));
         if (pathFile.extname(files[i]) === ".txt" || pathFile.extname(files[i]) === ".log" || pathFile.extname(files[i]) === ".ipynb") {
           contentToShowInPage += '<div style="margin-left:25px;"><img id="logo" src="../assets/images/txt.png" alt="txt_logo" style="width:20px;" /><a href="#" onclick="window.open(\'' + name + '\'); return false;"">' + files[i] + '</a></div>';
         }
