@@ -55,29 +55,14 @@ function getFiles(dir, fileList) {
       }
     }
   }
-
   contentToShowInPage += '</details>';
   document.getElementById('list').innerHTML = contentToShowInPage;
-
-  var spans = document.getElementsByClassName('video_clip'),
-    obj = {};
-
-  for (var iObj in spans) {
-    if (isNaN(iObj) && iObj != 'item' && iObj != 'namedItem' && iObj != 'length') {
-      var elementId = iObj;
-      document.getElementById(elementId).addEventListener('click', function (event) {
-        document.getElementById('row_video_content').style.display = "block";
-        console.log("clip: " + document.getElementById(elementId).innerHTML);
-      });
-      //console.log(iObj);
-
-    }
-  }
   return fileList;
 }
 
 window.onclick = e => {
   if (pathFile.extname(e.target.innerHTML) === ".mp3" || pathFile.extname(e.target.innerHTML) === ".mp4") {
+    document.getElementById('row_video_content').style.display = "block";
     if (pathFile.extname(e.target.innerHTML) === ".mp3")
       document.getElementById('video_id').setAttribute('height', '40px')
     if (pathFile.extname(e.target.innerHTML) === ".mp4")
