@@ -50,22 +50,7 @@ function getFiles(dir, fileList) {
         fileList.push(files[i]);
       else {
         console.log(pathFile.extname(files[i]));
-        if (pathFile.extname(files[i]) === ".txt" || pathFile.extname(files[i]) === ".log" || pathFile.extname(files[i]) === ".ipynb") {
-          contentToShowInPage += '<div style="margin-left:25px;"><img id="logo" src="../assets/images/txt.png" alt="txt_logo" style="width:20px;" /><a href="#" onclick="window.open(\'' + name + '\'); return false;"">' + files[i] + '</a></div>';
-        }
-        else if (pathFile.extname(files[i]) === ".mp4") {
-          contentToShowInPage += '<div style="margin-left:25px;"><img id="logo" src="../assets/images/mp4.png" alt="mp4_logo" style="width:20px;" /> <a href="#" class="video_clip" id="video_single_' + files[i] + '\'">' + name + '</a></div>';
-        }
-        else if (pathFile.extname(files[i]) === ".mp3") {
-          contentToShowInPage += '<div style="margin-left:25px;"><img id="logo" src="../assets/images/mp3_new.png" alt="mp3_logo" style="width:20px;" /> <a href="#" class="video_clip" id="video_single_' + files[i] + '\'">' + name + '</a></div>';
-        }
-        else if (pathFile.extname(files[i]) === ".doc" || pathFile.extname(files[i]) === ".docx" || pathFile.extname(files[i]) === ".xls" || pathFile.extname(files[i]) === ".xlsx") {
-          contentToShowInPage += '<div style="margin-left:25px;"><img id="logo" src="../assets/images/office.png" alt="office_logo" style="width:20px;" /> <a href="#" onclick="window.open(\'' + name + '\'); return false;"">' + files[i] + '</a></div>';
-        }
-        //another content- in progress, what to do with files
-        else {
-          contentToShowInPage += '<div style="margin-left:25px;"><img id="logo" src="../assets/images/not_know.png" alt="not_know_logo" style="width:20px;" /> ' + files[i] + '</div>';
-        }
+        contentToShowInPage = setActionAndIcon(files, i, contentToShowInPage, name);
         fileList.push(name);
       }
     }
@@ -105,4 +90,23 @@ window.onclick = e => {
     video.load();
     video.play();
   }
+}
+
+function setActionAndIcon(files, i, contentToShowInPage, name) {
+  if (pathFile.extname(files[i]) === ".txt" || pathFile.extname(files[i]) === ".log" || pathFile.extname(files[i]) === ".ipynb") {
+    contentToShowInPage += '<div style="margin-left:25px;"><img id="logo" src="../assets/images/txt.png" alt="txt_logo" style="width:20px;" /><a href="#" onclick="window.open(\'' + name + '\'); return false;"">' + files[i] + '</a></div>';
+  }
+  else if (pathFile.extname(files[i]) === ".mp4") {
+    contentToShowInPage += '<div style="margin-left:25px;"><img id="logo" src="../assets/images/mp4.png" alt="mp4_logo" style="width:20px;" /> <a href="#" class="video_clip" id="video_single_' + files[i] + '\'">' + name + '</a></div>';
+  }
+  else if (pathFile.extname(files[i]) === ".mp3") {
+    contentToShowInPage += '<div style="margin-left:25px;"><img id="logo" src="../assets/images/mp3_new.png" alt="mp3_logo" style="width:20px;" /> <a href="#" class="video_clip" id="video_single_' + files[i] + '\'">' + name + '</a></div>';
+  }
+  else if (pathFile.extname(files[i]) === ".doc" || pathFile.extname(files[i]) === ".docx" || pathFile.extname(files[i]) === ".xls" || pathFile.extname(files[i]) === ".xlsx") {
+    contentToShowInPage += '<div style="margin-left:25px;"><img id="logo" src="../assets/images/office.png" alt="office_logo" style="width:20px;" /> <a href="#" onclick="window.open(\'' + name + '\'); return false;"">' + files[i] + '</a></div>';
+  }
+  else {
+    contentToShowInPage += '<div style="margin-left:25px;"><img id="logo" src="../assets/images/not_know.png" alt="not_know_logo" style="width:20px;" /> ' + files[i] + '</div>';
+  }
+  return contentToShowInPage;
 }
