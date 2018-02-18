@@ -23,7 +23,6 @@ document.getElementById('btn_file').onclick = function () {
 
 };
 
-
 function getFiles(dir, fileList) {
   fileList = fileList || [];
   var first = true;
@@ -31,8 +30,6 @@ function getFiles(dir, fileList) {
   var nameToCheck = dir + '/' + files[i + 1];
   var contentToShowInPage;
   contentToShowInPage += '<details><summary>' + dir + '</summary>'; //for first Main- node
-
-
 
   for (var i in files) {
     if (!files.hasOwnProperty(i)) continue;
@@ -59,9 +56,9 @@ function getFiles(dir, fileList) {
         else if (pathFile.extname(files[i]) === ".mp3") {
           contentToShowInPage += '<div style="margin-left:25px;"><img id="logo" src="../assets/images/mp3_new.png" alt="mp3_logo" style="width:20px;" /> <a href="#" class="video_clip" id="video_single_' + files[i] + '\'">' + name + '</a></div>';
         }
-        else if (pathFile.extname(files[i]) === ".doc" || pathFile.extname(files[i]) === ".docx" || pathFile.extname(files[i]) === ".xls"|| pathFile.extname(files[i]) === ".xlsx") {
+        else if (pathFile.extname(files[i]) === ".doc" || pathFile.extname(files[i]) === ".docx" || pathFile.extname(files[i]) === ".xls" || pathFile.extname(files[i]) === ".xlsx") {
           contentToShowInPage += '<div style="margin-left:25px;"><img id="logo" src="../assets/images/office.png" alt="mp4_logo" style="width:20px;" /> <a href="#" onclick="window.open(\'' + name + '\'); return false;"">' + files[i] + '</a></div>';
-        }        
+        }
         //another content- in progress, what to do with files
         else {
           contentToShowInPage += '<div style="margin-left:25px;"><img id="logo" src="../assets/images/not_know.png" alt="mp3_logo" style="width:20px;" /> ' + files[i] + '</div>';
@@ -97,15 +94,17 @@ function getFiles(dir, fileList) {
 
 window.onclick = e => {
   //if(e.target.innerHTML.indexOf('substring') !== -1; )
-  if (pathFile.extname(e.target.innerHTML) === ".mp3")
-    document.getElementById('video_id').setAttribute('height', '40px')
-  if (pathFile.extname(e.target.innerHTML) === ".mp4")
-    document.getElementById('video_id').setAttribute('height', 'auto')
-  console.log('clicked element: ' + e.target.innerHTML);
-  document.getElementById('labelOfClip').innerHTML = e.target.innerHTML;
+  if (pathFile.extname(e.target.innerHTML) === ".mp3" || pathFile.extname(e.target.innerHTML) === ".mp4") {
+    if (pathFile.extname(e.target.innerHTML) === ".mp3")
+      document.getElementById('video_id').setAttribute('height', '40px')
+    if (pathFile.extname(e.target.innerHTML) === ".mp4")
+      document.getElementById('video_id').setAttribute('height', 'auto')
+    console.log('clicked element: ' + e.target.innerHTML);
+    document.getElementById('labelOfClip').innerHTML = e.target.innerHTML;
 
-  var video = document.getElementById('video_id');
-  document.getElementById('video_id').innerHTML = '<source src="' + e.target.innerHTML + '" type="video/mp4">';
-  video.load();
-  video.play();
+    var video = document.getElementById('video_id');
+    document.getElementById('video_id').innerHTML = '<source src="' + e.target.innerHTML + '" type="video/mp4">';
+    video.load();
+    video.play();
+  }
 }
