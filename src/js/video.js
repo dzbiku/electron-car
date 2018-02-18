@@ -88,7 +88,6 @@ function download() {
     document.getElementById('activator').innerHTML = "Vidoe downloaded!";
 }
 
-
 //Function for saving video with another date- simply way to find video, that we need to replay
 function setNameWithTime() {
     var currentdate = new Date();
