@@ -2,10 +2,7 @@ var fs = require('fs');
 var output = [];
 var pathFile = require('path');
 
-function handleFileSelect(evt) {
-}
-
-document.getElementById('files').addEventListener('change', handleFileSelect, false);
+document.getElementById('files').addEventListener('change', {}, false);
 
 function getfolder(e) {
   var files = e.target.files;
@@ -14,7 +11,7 @@ function getfolder(e) {
 }
 
 document.getElementById('btn_file').onclick = function () {
-  //document.getElementById('files').click();
+  //document.getElementById('files').click(); for folder selector in progess
   //var seleftedFolder = "D:/Programowanie/Angular/AlngularCLI_kurs";
   var seleftedFolder = "D:/Video/YouTube/Alternator"; //D:\Video\YouTube\Alternator
 
