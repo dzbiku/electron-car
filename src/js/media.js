@@ -79,21 +79,16 @@ function getFiles(dir, fileList) {
       var elementId = iObj;
       document.getElementById(elementId).addEventListener('click', function (event) {
         document.getElementById('row_video_content').style.display = "block";
-        //document.getElementById('video_id').innerHTML = '<source src="' + document.getElementById(elementId).innerHTML + '" type="video/mp4">';
         console.log("clip: " + document.getElementById(elementId).innerHTML);
       });
       //console.log(iObj);
 
     }
-    //alert(spans.length);
   }
-
-  //document.getElementById('video_single').onclick = setThisAsVideoSource;
   return fileList;
 }
 
 window.onclick = e => {
-  //if(e.target.innerHTML.indexOf('substring') !== -1; )
   if (pathFile.extname(e.target.innerHTML) === ".mp3" || pathFile.extname(e.target.innerHTML) === ".mp4") {
     if (pathFile.extname(e.target.innerHTML) === ".mp3")
       document.getElementById('video_id').setAttribute('height', '40px')
