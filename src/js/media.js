@@ -31,6 +31,8 @@ function getFiles(dir, fileList) {
   var contentToShowInPage;
   contentToShowInPage += '<details><summary>' + dir + '</summary>'; //for first Main- node
 
+  files.sort();
+
   for (var i in files) {
     if (!files.hasOwnProperty(i)) continue;
     var name = dir + '/' + files[i];
