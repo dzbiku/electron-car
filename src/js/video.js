@@ -60,7 +60,7 @@ btn_stop_record.addEventListener('click', function (event) {
     clearInterval(timer);
     document.getElementById('activator').innerHTML = "Recording stoped! Please click download button to save video.";
     document.getElementById('btn_take_video').style.display = "block";
-    secondsLabel.innerHTML = minutesLabel.innerHTML = totalSeconds ="00";
+    secondsLabel.innerHTML = minutesLabel.innerHTML = totalSeconds = "00";
 })
 
 navigator.mediaDevices.getUserMedia({ "video": { width: { max: 640 } }, "audio": true })
@@ -81,11 +81,22 @@ function download() {
     document.body.appendChild(a);
     a.style = "display: none";
     a.href = url;
-    a.download = 'test.webm';
+    a.download = setNameWithTime() +'.webm';
     a.click();
     // setTimeout() here is needed for Firefox.
     setTimeout(function () { URL.revokeObjectURL(url); }, 100);
     document.getElementById('activator').innerHTML = "Vidoe downloaded!";
 }
 
-//document.getElementById('video_frame').innerHTML = "Current not recorder or some error! See below for details";
+
+//Function for saving video with another date- simply way to find video, that we need to replay
+function setNameWithTime() {
+    var currentdate = new Date();
+    var datetime = 'video_' + currentdate.getDate() + "_"
+        + (currentdate.getMonth() + 1) + "_"
+        + currentdate.getFullYear() + "_"
+        + currentdate.getHours() + "_"
+        + currentdate.getMinutes() + "_"
+        + currentdate.getSeconds();
+    return datetime;
+}
