@@ -22,7 +22,7 @@ function createWindow() {
   mainWindow = new BrowserWindow({ width: 800, height: 600 })
   // and load the index.html of the app.
   mainWindow.loadURL(url.format({
-    pathname: path.join(__dirname, 'src/index.html'),
+    pathname: path.join(__dirname, 'src/notifications.html'),
     protocol: 'file:',
     slashes: true
   }))
@@ -52,6 +52,7 @@ app.on('window-all-closed', function () {
     app.quit()
   }
 })
+
 
 app.on('activate', function () {
   // On OS X it's common to re-create a window in the app when the
@@ -105,8 +106,9 @@ var menu = Menu.buildFromTemplate([
             label: 'Set Full Screen',
             accelerator: 'F11',
             click() {
-              if (mainWindow)
+              if (mainWindow) {
                 mainWindow.setFullScreen(true)
+              }
             }
           },
           {
@@ -114,7 +116,9 @@ var menu = Menu.buildFromTemplate([
             accelerator: 'Shift+F11',
             click() {
               if (mainWindow)
-                mainWindow.setFullScreen(false)
+              {
+                mainWindow.setFullScreen(false)                
+              }
             }
           },
           {
