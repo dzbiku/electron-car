@@ -37,13 +37,17 @@
             </video>
         </div>
     </div>
-    <div class="row-buttons" style="grid-template-columns: 15% 25% auto;">
+    <div class="row-buttons" style="grid-template-columns: 10% 20% 20% auto;">
         <div>
             <button id="btn_file">Media</button>
             <input type="file" id="files" style="display:none;" name="files[]" multiple webkitdirectory mozdirectory msdirectory odirectory
                 directory/>
         </div>
-        <div id="file_images_display" style="font-size: 10px">
+        <div style="font-size: 15px">
+            <input id="mediaFiles" type="checkbox" name="only_media" value="media" checked>Media file only
+            <br>
+        </div>
+        <div id="file_images_display" style="font-size: 20px">
             Display folder selector/Display details of file
             <!-- <input type="file" id="flup" onchange="getfolder(event)" webkitdirectory mozdirectory msdirectory odirectory directory multiple/> -->
         </div>

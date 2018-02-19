@@ -47,7 +47,12 @@ function getFiles(dir, fileList) {
         fileList.push(files[i]);
       else {
         console.log(pathFile.extname(files[i]));
-        contentToShowInPage = setActionAndIcon(files, i, contentToShowInPage, name);
+        if (checkedMedia()) {
+          if (pathFile.extname(files[i]) === ".mp3" || pathFile.extname(files[i]) === ".mp4")
+            contentToShowInPage = setActionAndIcon(files, i, contentToShowInPage, name);
+        }
+        else
+          contentToShowInPage = setActionAndIcon(files, i, contentToShowInPage, name);
         fileList.push(name);
       }
     }
@@ -92,3 +97,13 @@ function setActionAndIcon(files, i, contentToShowInPage, name) {
   }
   return contentToShowInPage;
 }
+
+function checkedMedia() {
+  var checkbox = document.getElementById('mediaFiles');
+  console.log(checkbox.checked)
+  return checkbox.checked;
+}
+
+mediaFiles.addEventListener('click', function (event) {
+  document.getElementById('btn_file').click();
+})
