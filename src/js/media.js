@@ -41,7 +41,7 @@ function getFiles(dir, fileList) {
       // }
       // first = false;
       // getFiles(name, fileList);
-      // contentToShowInPage += '<details style="margin-left:25px"><summary>' + name + '</summary>';
+      // contentToShowInPage += '<details style="margin-left:25px"><summary>' + name + '</summary><details>';
     } else {
       if (fileList == null)
         fileList.push(files[i]);

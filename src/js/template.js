@@ -30,3 +30,10 @@ btn_five.addEventListener('click',function(event)
     var pathToVideo = path.join('file://',__dirname,'car.html')
     main.loadURL(pathToVideo)   
 })
+// Notifications
+btn_three.addEventListener('click',function(event)
+{
+    var main =remote.getCurrentWindow();
+    var pathToVideo = path.join('file://',__dirname,'notifications.html')
+    main.loadURL(pathToVideo)   
+})
