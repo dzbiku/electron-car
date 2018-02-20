@@ -29,6 +29,7 @@ function weatherAfterParse(jsonAfterParse) {
 function fahrenheitToCelsius(tempInFahr) {
     return (5 / 9) * (tempInFahr - 32);
 }
+
 function kelvinToCelsius(tempInFahr) {
     return tempInFahr - 273.15;
 }

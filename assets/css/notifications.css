@@ -7,9 +7,10 @@
     grid-template-columns: 40% 30% 30%;
     /* align-items: center; */
 }
+/* clock font-size */
 .row-content-notify>div>button{
     background: #1a1a1a;
-    font-size: 70px;
+    font-size: 60px;
     align-items: center;
     float: left;
 }
