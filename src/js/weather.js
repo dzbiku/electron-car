@@ -35,8 +35,10 @@ function kelvinToCelsius(tempInFahr) {
 }
 
 waether_load.addEventListener('click', getLocation(), false)
+
 //download full json
 $(function gettingJSON() {
+    try{
     $.getJSON("http://api.openweathermap.org/data/2.5/weather?q=Wroclaw&APPID=9817b68be1114bce73d71d5678d36925", function (json) { //by name
         // $.getJSON("http://api.openweathermap.org/data/2.5/weather?lat=" + lat + "&lon=" +long+ "&APPID=9817b68be1114bce73d71d5678d36925", function (json) { //by cords
         //console.log('przed: ' + lat + '; po parsowaniu: ' + parseInt(lat));
@@ -45,6 +47,9 @@ $(function gettingJSON() {
         var jnObject = JSON.parse(JSON.stringify(json));
         console.log(jnObject);
         document.getElementById('weather-notify').innerHTML = weatherAfterParse(jnObject);
-    });
+    });}
+    catch(err){
+        document.getElementById('weather-notify').innerHTML = "We've a truble with connection to Weather API- check Yout internet connection";
+    }
 });
 
