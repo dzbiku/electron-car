@@ -49,7 +49,7 @@ $(function gettingJSON() {
         document.getElementById('weather-notify').innerHTML = weatherAfterParse(jnObject);
     });}
     catch(err){
-        document.getElementById('weather-notify').innerHTML = "We've a truble with connection to Weather API- check Yout internet connection";
+        document.getElementById('weather-notify').innerHTML = "We've a trouble with connection to Weather API- check Yout internet connection";
     }
 });
 
