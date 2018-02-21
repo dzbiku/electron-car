@@ -4,7 +4,7 @@
     background: #1a1a1a;
     border-bottom: 3px solid #ff0057;
     display: grid;
-    grid-template-columns: 40% 30% 30%;
+    grid-template-columns: 30% 40% 30%;
     /* align-items: center; */
 }
 /* clock font-size */
