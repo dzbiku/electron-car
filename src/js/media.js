@@ -4,18 +4,33 @@ var pathFile = require('path');
 
 document.getElementById('files').addEventListener('change', {}, false);
 
+var filesGlobal;
+
 function getfolder(e) {
   var files = e.target.files;
   var path = files[0].webkitRelativePath;
   var Folder = path.split("/");
 }
 
+var folder = document.getElementById("myInput");
+folder.onchange=function(){
+  var files = folder.files,
+      len = files.length,
+      i;
+      filesGlobal = files[0].path;
+  //for(i=0;i<len;i+=1){
+    //console.log(files[i]);
+  //}
+}
+
 document.getElementById('btn_file').onclick = function () {
-  //document.getElementById('files').click(); for folder selector in progess
+  document.getElementById('myInput').click();
   //var seleftedFolder = "D:/Programowanie/Angular/AlngularCLI_kurs";
   var seleftedFolder = "D:/Video/YouTube/Alternator"; //D:\Video\YouTube\Alternator
 
-  getFiles(seleftedFolder);
+  //getFiles(seleftedFolder);
+  getFiles(filesGlobal);
+
   document.getElementById('file_images_display').innerHTML = seleftedFolder;
 
 };
