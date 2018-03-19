@@ -33,6 +33,9 @@
     </div>
     <div class="row-content-notify">
         <div id="notify-column">
+            <input type="text" name="cityAddress" id="address">
+            <div id="cityadress2" style="width: 500px;"></div>
+            <input type="button" onclick="showWeather(address.value)" value="Check weather" />
             <div id="weather-notify">
                 <button id="waether_load">Weather loading...</button>
             </div>
@@ -45,7 +48,7 @@
         </div>
         <div id="main-column">
             <div>
-                <div id="yt-player">YouTube content loading...</div>                
+                <div id="yt-player">YouTube content loading...</div>
             </div>
         </div>
         <div id="hello-columns" style="font-size: 40px">
@@ -58,7 +61,7 @@
     </div>
     <script src="js/notifications.js"></script>
     <script src="js/notification/weather.js"></script>
-    <script src="js/template.js"></script> 
+    <script src="js/template.js"></script>
     <script src="js/notification/youTubeInserter.js"></script>
     <!-- youTubeInserter.js -->
 </body>
