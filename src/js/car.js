@@ -12,9 +12,10 @@ function drawChartGas() {
 
     var options = {
         width: 400, height: 200,
-        redFrom: 90, redTo: 100,
-        yellowFrom: 75, yellowTo: 90,
-        minorTicks: 5
+        redFrom: 180, redTo: 220,
+        yellowFrom: 140, yellowTo: 180,
+        greenFrom: 40, greenTo: 60,
+        minorTicks: 20, max: 220
     };
 
     var chart = new google.visualization.Gauge(document.getElementById('chart_div_gas'));
@@ -36,9 +37,9 @@ function drawChartEngine() {
 
     var options = {
         width: 400, height: 200,
-        redFrom: 90, redTo: 100,
-        yellowFrom: 75, yellowTo: 90,
-        minorTicks: 5
+        redFrom: 45, redTo: 75,
+        yellowFrom: 30, yellowTo: 45,
+        minorTicks: 15, max: 75
     };
 
     var chart = new google.visualization.Gauge(document.getElementById('chart_div_engine'));
@@ -62,7 +63,8 @@ function drawChartFuel() {
         width: 400, height: 200,
         redFrom: 0, redTo: 10,
         yellowFrom: 10, yellowTo: 20,
-        minorTicks: 5
+        greenFrom: 90, greenTo: 100,
+        minorTicks: 5,
     };
 
     var chart = new google.visualization.Gauge(document.getElementById('chart_div_fuel'));
