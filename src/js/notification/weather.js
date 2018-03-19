@@ -63,15 +63,18 @@ function gettingJSON(linkedCity) {
             //console.log(JSON.stringify(json));
             var jnObject = JSON.parse(JSON.stringify(json));
             console.log(jnObject);
-            document.getElementById('weather-notify').innerHTML = weatherAfterParse(jnObject);
+            document.getElementById('weather-notify').innerHTML 
+            = weatherAfterParse(jnObject);
         });
     }
     catch (err) {
-        document.getElementById('weather-notify').innerHTML = "We've a trouble with connection to Weather API- check Yout internet connection";
+        document.getElementById('weather-notify').innerHTML
+         = "We've a trouble with connection to Weather API- check Yout internet connection";
     }
 }
 
 function showWeather(address) {
-    var linkedCity = "http://api.openweathermap.org/data/2.5/weather?q=" + address + "&APPID=9817b68be1114bce73d71d5678d36925";
+    var linkedCity = "http://api.openweathermap.org/data/2.5/weather?q=" + 
+    address + "&APPID=9817b68be1114bce73d71d5678d36925";
     gettingJSON(linkedCity);
 }

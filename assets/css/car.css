@@ -1,0 +1,8 @@
+.row-without-border{
+    width: 100%;
+    margin-top: 15px;
+    background: #1a1a1a;
+    display: grid;
+    grid-template-columns: 35% auto 35%;
+    align-items: center;
+}
