@@ -6,6 +6,11 @@
     <title>Data from car</title>
     <link rel="stylesheet" href="../assets/css/main.css">
     <link rel="stylesheet" href="../assets/css/car.css">
+    <script>
+            window.nodeRequire = require;
+            delete window.module;
+        </script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
     <!-- for google charts -->
 </head>
@@ -30,24 +35,21 @@
     </div>
     <div class="row-without-border">
         <div>
-            Gas- chart
-            <div id="chart_div_gas" style="width: 400px; height: 200px;"></div>
+            <div id="chart_div_engine" style="width: 100%;min-height: 300px;"></div>
         </div>
         <div>
-            Engine- chart
-            <div id="chart_div_engine" style="width: 400px; height: 200px;"></div>
+            <div id="chart_div_gas" style="width: 100%;min-height: 400px;"></div>
         </div>
         <div>
-            Fuel- chart
-            <div id="chart_div_fuel" style="width: 400px; height: 200px;"></div>
+            <div id="chart_div_fuel" style="width: 100%;min-height: 200px;"></div>
         </div>
     </div>
     <div class="row">
         <div>
-            Brand logo- from Car data
+            Temporary fuel consumption- counter
         </div>
         <div>
-            Temporary fuel consumption- counter
+            <img id="logo" src="../assets/images/bmw_logo.png" alt="txt_logo" style="width:100%;" />
         </div>
         <div>
             Avg. fuel consumption- counter

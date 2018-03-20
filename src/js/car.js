@@ -11,7 +11,6 @@ function drawChartGas() {
     ]);
 
     var options = {
-        width: 400, height: 200,
         redFrom: 180, redTo: 220,
         yellowFrom: 140, yellowTo: 180,
         greenFrom: 40, greenTo: 60,
@@ -35,8 +34,7 @@ function drawChartEngine() {
         ['Engine x100', 55]
     ]);
 
-    var options = {
-        width: 400, height: 200,
+    var options = {        
         redFrom: 45, redTo: 75,
         yellowFrom: 30, yellowTo: 45,
         minorTicks: 15, max: 75
@@ -46,7 +44,7 @@ function drawChartEngine() {
 
     chart.draw(data, options);
     setInterval(function () {
-        data.setValue(1, 1, 40 + Math.round(60 * Math.random()));
+        data.setValue(0, 1, 40 + Math.round(60 * Math.random()));
         chart.draw(data, options);
     }, 5000);
 }
@@ -60,7 +58,6 @@ function drawChartFuel() {
     ]);
 
     var options = {
-        width: 400, height: 200,
         redFrom: 0, redTo: 10,
         yellowFrom: 10, yellowTo: 20,
         greenFrom: 90, greenTo: 100,
@@ -71,7 +68,13 @@ function drawChartFuel() {
 
     chart.draw(data, options);    
     setInterval(function () {
-        data.setValue(2, 1, 60 + Math.round(20 * Math.random()));
+        data.setValue(0, 1, 60 + Math.round(20 * Math.random()));
         chart.draw(data, options);
     }, 26000);
 }
+
+$(window).resize(function(){
+    drawChartFuel();
+    drawChartEngine();
+    drawChartGas();
+  });
