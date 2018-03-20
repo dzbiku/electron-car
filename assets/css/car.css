@@ -3,11 +3,34 @@
     margin-top: 15px;
     background: #1a1a1a;
     display: grid;
-    grid-template-columns: auto auto auto;
+    grid-template-columns: 30% 40% 30%;
+    text-align:center;
     align-items: center;
+    margin: auto;
 }
-
+.row-without-border>div{
+    width: 100%;
+    margin-top: 15px;
+    background: #1a1a1a;
+    display: grid;
+    text-align:center;
+    align-items: center;
+    margin: auto;
+    display: block;
+}
+.row-without-border>div>div{
+    width: 100%;
+    margin-top: 15px;
+    background: #1a1a1a;
+    display: grid;
+    align-items: center;
+    text-align:center;
+    margin: auto;
+    display: block;
+}
 .row>div{
     grid-template-columns: auto auto auto;
     align-items: center;
+    text-align:center;
+    margin: auto;
 }
