@@ -63,7 +63,7 @@ btn_stop_record.addEventListener('click', function (event) {
     secondsLabel.innerHTML = minutesLabel.innerHTML = totalSeconds = "00";
 })
 
-navigator.mediaDevices.getUserMedia({ "video": { width: { max: 640 } }, "audio": true })
+navigator.mediaDevices.getUserMedia({ "video": { width: { max: 640 } }, "audio": false })
     .then(gotMedia)
     .catch(e => {
         console.error('getUserMedia() failed: ' + e);

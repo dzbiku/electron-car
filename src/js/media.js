@@ -63,7 +63,7 @@ function getFiles(dir, fileList) {
       else {
         console.log(pathFile.extname(files[i]));
         if (checkedMedia()) {
-          if (pathFile.extname(files[i]) === ".mp3" || pathFile.extname(files[i]) === ".mp4")
+          if (pathFile.extname(files[i]) === ".mp3" || pathFile.extname(files[i]) === ".mp4" || pathFile.extname(files[i]) === ".webm")
             contentToShowInPage = setActionAndIcon(files, i, contentToShowInPage, name);
         }
         else
@@ -78,11 +78,13 @@ function getFiles(dir, fileList) {
 }
 
 window.onclick = e => {
-  if (pathFile.extname(e.target.innerHTML) === ".mp3" || pathFile.extname(e.target.innerHTML) === ".mp4") {
+  if (pathFile.extname(e.target.innerHTML) === ".mp3" || pathFile.extname(e.target.innerHTML) === ".mp4"||pathFile.extname(e.target.innerHTML) === ".webm") {
     document.getElementById('row_video_content').style.display = "block";
     if (pathFile.extname(e.target.innerHTML) === ".mp3")
       document.getElementById('video_id').setAttribute('height', '40px')
     if (pathFile.extname(e.target.innerHTML) === ".mp4")
+      document.getElementById('video_id').setAttribute('height', 'auto')
+      if (pathFile.extname(e.target.innerHTML) === ".webm")
       document.getElementById('video_id').setAttribute('height', 'auto')
     console.log('clicked element: ' + e.target.innerHTML);
     document.getElementById('labelOfClip').innerHTML = e.target.innerHTML;
@@ -99,6 +101,9 @@ function setActionAndIcon(files, i, contentToShowInPage, name) {
     contentToShowInPage += '<div style="margin-left:25px;"><img id="logo" src="../assets/images/txt.png" alt="txt_logo" style="width:20px;" /><a href="#" onclick="window.open(\'' + name + '\'); return false;"">' + files[i] + '</a></div>';
   }
   else if (pathFile.extname(files[i]) === ".mp4") {
+    contentToShowInPage += '<div style="margin-left:25px;"><img id="logo" src="../assets/images/mp4.png" alt="mp4_logo" style="width:20px;" /> <a href="#" class="video_clip" id="video_single_' + files[i] + '\'">' + name + '</a></div>';
+  }
+  else if (pathFile.extname(files[i]) === ".webm") {
     contentToShowInPage += '<div style="margin-left:25px;"><img id="logo" src="../assets/images/mp4.png" alt="mp4_logo" style="width:20px;" /> <a href="#" class="video_clip" id="video_single_' + files[i] + '\'">' + name + '</a></div>';
   }
   else if (pathFile.extname(files[i]) === ".mp3") {
